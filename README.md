@@ -25,7 +25,7 @@
 <!-- [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@alexmercer02.st) -->
 [![Pinterest](https://img.shields.io/badge/Pinterest-%23E60023.svg?logo=Pinterest&logoColor=white)](https://pinterest.com/@sharanthakur)
 [![Reddit](https://img.shields.io/badge/Reddit-%23FF4500.svg?logo=Reddit&logoColor=white)](https://reddit.com/user/Captain2Phones_)
-[![Twitter](https://img.shields.io/badge/Twitter-%231DA1F2.svg?logo=Twitter&logoColor=white)](https://twitter.com/@AlexmercerMe)
+[![Twitter](https://img.shields.io/badge/X-%231DA1F2.svg?logo=X&logoColor=black)](https://twitter.com/@AlexmercerMe)
 [![HackerRank](https://img.shields.io/badge/HackerRank-%ff00EA64.svg?logo=HackerRank&logoColor=white)](https://www.hackerrank.com/sharandt19)
 
 # 💻 Tech Stack
