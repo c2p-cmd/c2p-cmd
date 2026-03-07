@@ -8,7 +8,7 @@
 
 - 🎓 Master's student in Computer Science @ GISMA, Germany  
 - 🧠 Working Student — AI/ML Researcher @ Fraunhofer FOKUS  
-- 📱 Former Software Engieer @ KIDA Studios (iOS, macOS, tvOS, watchOS, visionOS, Flutter)
+- 📱 Former Software Engineer @ KIDA Studios (iOS, macOS, tvOS, watchOS, visionOS, Flutter)
 - 🤖 Passionate about on-device machine learning and spatial computing  
 - 🌍 Bridging the gap between ML models and iOS development for faster, private inference  
 - 🧪 Kaggle enthusiast & hands-on with deploying models (Keras, TF-DF, CoreML, FastAPI)
