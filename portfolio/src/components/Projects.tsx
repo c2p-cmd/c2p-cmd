@@ -34,8 +34,8 @@ const projectList: Project[] = [
   },
   {
     title: "Image Generative Models with MLX",
-    desc: "Full-stack news aggregation platform with real-time updates",
-    tags: ["Full-stack", "Real-time", "News"],
+    desc: "Trained and deployed Image Generative models on Apple Silicone",
+    tags: ["On-Device Inference", "GenAI"],
     link: [
       "https://github.com/c2p-cmd/all_about_gans",
       "https://www.youtube.com/watch?v=-rIP5dT_nKY",
@@ -170,12 +170,15 @@ export default function Projects() {
                         gap: "0.5rem",
                         flexWrap: "wrap",
                         marginBottom: "1rem",
+                        width: "100%",
                       }}
                     >
                       {p.tags.map((tag, j) => (
                         <span
                           key={j}
                           style={{
+                            flexGrow: 1,
+                            textAlign: "center",
                             padding: "0.25rem 0.6rem",
                             background: "var(--accent-glow)",
                             color: "var(--accent)",
@@ -193,6 +196,7 @@ export default function Projects() {
                         display: "flex",
                         gap: "0.75rem",
                         flexWrap: "wrap",
+                        width: "100%",
                       }}
                     >
                       {Array.isArray(p.link) ? (
@@ -204,6 +208,8 @@ export default function Projects() {
                             rel="noopener noreferrer"
                             style={{
                               display: "inline-block",
+                              flexGrow: 1,
+                              textAlign: "center",
                               padding: "0.4rem 0.8rem",
                               background: "var(--accent)",
                               color: "white",
@@ -227,6 +233,8 @@ export default function Projects() {
                           rel="noopener noreferrer"
                           style={{
                             display: "inline-block",
+                            flexGrow: 1,
+                            textAlign: "center",
                             padding: "0.4rem 0.8rem",
                             background: "var(--accent)",
                             color: "white",
