@@ -59,7 +59,7 @@ export default function Projects() {
       id="projects"
       style={{
         background: "var(--bg-primary)",
-        padding: "6rem 2rem",
+        padding: "3rem 2rem 3rem",
         position: "relative",
         zIndex: 1,
       }}

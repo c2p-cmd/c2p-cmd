@@ -4,7 +4,7 @@ export default function Contact() {
       id="contact" 
       style={{
         background: "linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)",
-        padding: "6rem 2rem",
+        padding: "3rem 2rem 6rem",
         textAlign: "center",
         position: "relative",
         zIndex: 1
@@ -18,6 +18,7 @@ export default function Contact() {
         
         <a 
           href="mailto:sharanthakur2001@gmail.com"
+          className="contact-email"
           style={{
             display: "inline-block",
             padding: "1rem 3rem",
@@ -27,7 +28,11 @@ export default function Contact() {
             fontWeight: "600",
             fontSize: "1.125rem",
             boxShadow: "var(--shadow-lg)",
-            transition: "all 0.3s ease"
+            transition: "all 0.3s ease",
+            maxWidth: "100%",
+            boxSizing: "border-box",
+            overflowWrap: "break-word",
+            wordBreak: "break-word"
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "translateY(-2px)";
@@ -41,6 +46,20 @@ export default function Contact() {
           sharanthakur2001@gmail.com
         </a>
       </div>
+      <style>{`
+        @media (max-width: 600px) {
+          .contact-email {
+            padding: 1rem 1.5rem !important;
+            font-size: 1rem !important;
+          }
+        }
+        @media (max-width: 400px) {
+          .contact-email {
+            font-size: 0.875rem !important;
+            padding: 1rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

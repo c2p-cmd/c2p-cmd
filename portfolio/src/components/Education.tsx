@@ -39,7 +39,7 @@ export default function Education() {
       id="education"
       style={{
         background: "var(--bg-secondary)",
-        padding: "6rem 2rem",
+        padding: "3rem 2rem 3rem",
         position: "relative",
         zIndex: 1,
       }}

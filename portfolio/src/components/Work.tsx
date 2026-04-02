@@ -28,19 +28,19 @@ const workEx: WorkExperience[] = [
 
 export default function Work() {
   return (
-    <section 
-      id="work" 
+    <section
+      id="work"
       style={{
         background: "var(--bg-primary)",
-        padding: "6rem 2rem",
+        padding: "3rem 2rem",
         position: "relative",
-        zIndex: 1
+        zIndex: 1,
       }}
     >
       <div style={{ maxWidth: "800px", margin: "0 auto" }}>
         <h2 style={{ textAlign: "center" }}>Work Experience</h2>
-        
-        <div style={{ marginTop: "3rem" }}>
+
+        <div style={{ marginTop: "3rem", position: "relative" }}>
           {workEx.map((work, index) => (
             <div
               key={index}
@@ -60,6 +60,8 @@ export default function Work() {
                   height: "12px",
                   borderRadius: "50%",
                   background: "var(--accent)",
+                  zIndex: 1,
+                  boxShadow: "0 0 0 4px var(--bg-primary)",
                 }}
               />
               <div
@@ -68,14 +70,19 @@ export default function Work() {
                   padding: "1.5rem",
                   borderRadius: "8px",
                   boxShadow: "var(--shadow)",
-                  border: "1px solid var(--border)"
+                  border: "1px solid var(--border)",
                 }}
               >
                 <h3 style={{ marginBottom: "0.5rem" }}>{work.title}</h3>
                 <p style={{ color: "var(--accent)", marginBottom: "0.25rem" }}>
                   {work.company}
                 </p>
-                <p style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+                <p
+                  style={{
+                    color: "var(--text-secondary)",
+                    fontSize: "0.875rem",
+                  }}
+                >
                   {work.duration}
                 </p>
               </div>

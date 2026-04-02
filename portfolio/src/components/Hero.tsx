@@ -29,14 +29,25 @@ function Scene() {
 export default function Hero() {
   const { scrollYProgress } = useScroll();
   const [displayText, setDisplayText] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const textArray = useMemo(() => {
     return displayText.split("\n");
   }, [displayText]);
-  const fullText =
-    "Press\nA -> About Me\nB -> Work Experience\nX -> Education\nY -> Projects";
+
+  const fullText = isMobile
+    ? "A: About | B: Work | X: Education | Y: Project"
+    : "Press\nA -> About Me\nB -> Work Experience\nX -> Education\nY -> Projects";
 
   useEffect(() => {
     let index = 0;
+    setDisplayText(""); // Reset display text when fullText changes (e.g. on resize)
     const timer = setInterval(() => {
       if (index <= fullText.length) {
         setDisplayText(fullText.slice(0, index));
@@ -47,7 +58,7 @@ export default function Hero() {
     }, 50);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [fullText]);
 
   const nameOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
   const nameScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.6]);
@@ -72,8 +83,9 @@ export default function Hero() {
               color: "var(--text-primary)",
               fontSize: "1rem",
               fontWeight: "500",
-              minHeight: "2rem",
+              minHeight: isMobile ? "1.2rem" : "2rem",
               textAlign: "left",
+              lineHeight: "1.2",
             }}
           >
             {textArray.map((line, idx) => (
@@ -90,10 +102,10 @@ export default function Hero() {
 
         {/* 3D Canvas container */}
         <div className="controller-container">
-          <Canvas 
-            camera={{ 
-              position: [0, 0, window.innerWidth <= 768 ? 4 : 5], 
-              fov: 45 
+          <Canvas
+            camera={{
+              position: [0, 0, window.innerWidth <= 768 ? 4 : 5],
+              fov: 45,
             }}
           >
             <ambientLight intensity={1.5} />
@@ -114,18 +126,33 @@ export default function Hero() {
             scale: nameScale,
             y: nameY,
             textAlign: "left",
+            justifyItems: "center",
             position: "relative",
             width: "100%",
           }}
           className="name-container"
         >
-          <motion.h1 className="hero-title">
-            Sharan Thakur
-          </motion.h1>
+          <motion.div
+            style={{
+              opacity: photoOpacity,
+              scale: photoScale,
+            }}
+            className="hero-photo-container"
+          >
+            <img
+              src={sharanPhoto}
+              alt="Sharan Thakur"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </motion.div>
+
+          <motion.h1 className="hero-title">Sharan Thakur</motion.h1>
           <motion.p className="hero-subtitle">
             AI/ML Researcher & Software Engineer
           </motion.p>
-          <motion.div style={{ display: "flex", gap: "1.5rem" }}>
+          <motion.div
+            style={{ display: "flex", gap: "1.5rem", justifyItems: "center" }}
+          >
             <a
               href="https://linkedin.com/in/sharan-thakur-a4a0861b5"
               target="_blank"
@@ -154,20 +181,6 @@ export default function Hero() {
             >
               <FaGithub />
             </a>
-          </motion.div>
-
-          <motion.div
-            style={{
-              opacity: photoOpacity,
-              scale: photoScale,
-            }}
-            className="hero-photo-container"
-          >
-            <img
-              src={sharanPhoto}
-              alt="Sharan Thakur"
-              style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            />
           </motion.div>
         </motion.div>
       </div>
@@ -254,10 +267,16 @@ export default function Hero() {
           transition: color 0.3s ease;
         }
 
+        .social-links-container {
+          display: flex;
+          gap: 1.5rem;
+          justify-content: center;
+          margin-top: 1rem;
+        }
+
         .hero-photo-container {
-          position: absolute;
-          bottom: -100px;
-          right: 20px;
+          position: relative;
+          margin-bottom: 2rem;
           width: 150px;
           height: 150px;
           border-radius: 50%;
@@ -297,6 +316,12 @@ export default function Hero() {
             transform: none;
             margin: 2rem auto 0;
             max-width: 90%;
+            padding: 0.5rem 1rem;
+          }
+
+          .hint-bubble > div {
+            min-height: 1rem !important;
+            font-size: 0.875rem !important;
           }
 
           .bubble-tail {
@@ -305,11 +330,14 @@ export default function Hero() {
 
           .name-container {
             text-align: center !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
           }
 
           .hero-photo-container {
             position: static;
-            margin: 2rem auto;
+            margin: 0 auto 2rem;
             width: 120px;
             height: 120px;
           }
@@ -320,6 +348,25 @@ export default function Hero() {
           
           .hero-subtitle {
             font-size: 1.25rem;
+          }
+        }
+
+        @media (max-height: 500px) and (orientation: landscape) {
+          .hero-photo-container {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem !important;
+          }
+          .hero-title {
+            font-size: 1.5rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          .hero-subtitle {
+            font-size: 1rem !important;
+            margin-bottom: 1rem !important;
+          }
+          .hero-content {
+            min-height: 80vh !important;
           }
         }
 
