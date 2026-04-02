@@ -13,17 +13,7 @@ export default function App() {
       <Hero />
 
       {/* Pushed to the right 50% and given a solid background */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          width: "50%",
-          marginLeft: "50%",
-          background: "var(--bg-primary)",
-          boxShadow: "-10px 0 30px rgba(0,0,0,0.03)",
-        }}
-        className="content-wrapper"
-      >
+      <div className="content-wrapper">
         <About />
         <Work />
         <Education />
@@ -32,10 +22,20 @@ export default function App() {
       </div>
 
       <style>{`
+        .content-wrapper {
+          position: relative;
+          z-index: 1;
+          width: 50%;
+          margin-left: 50%;
+          background: var(--bg-primary);
+          box-shadow: -10px 0 30px rgba(0,0,0,0.03);
+        }
+
         @media (max-width: 1024px) {
           .content-wrapper {
-            width: 100% !important;
-            margin-left: 0 !important;
+            width: 100%;
+            margin-left: 0;
+            box-shadow: none;
           }
         }
       `}</style>

@@ -158,18 +158,7 @@ export default function About() {
           <h3 style={{ marginBottom: "2rem", fontSize: "1.8rem" }}>
             Tech Stack
           </h3>
-          <div
-            style={{
-              height: "550px",
-              width: "100%",
-              background: "var(--bg-card)",
-              borderRadius: "12px",
-              boxShadow: "var(--shadow)",
-              border: "1px solid var(--border)",
-              position: "relative",
-              overflow: "hidden", // Ensures nothing bleeds out of the card
-            }}
-          >
+          <div className="tech-cloud-container">
             {/* cursor: "grab" gives the user a hint that it might be interactive.
               If you add OrbitControls later, this makes it feel native.
             */}
@@ -182,6 +171,31 @@ export default function About() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        .tech-cloud-container {
+          height: 550px;
+          width: 100%;
+          background: var(--bg-card);
+          border-radius: 12px;
+          box-shadow: var(--shadow);
+          border: 1px solid var(--border);
+          position: relative;
+          overflow: hidden;
+        }
+
+        @media (max-width: 1024px) {
+          .tech-cloud-container {
+            height: 450px;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .tech-cloud-container {
+            height: 350px;
+          }
+        }
+      `}</style>
     </section>
   );
 }

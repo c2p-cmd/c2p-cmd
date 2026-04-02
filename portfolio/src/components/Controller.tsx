@@ -42,7 +42,7 @@ export default function Controller() {
           onPointerOut={() => setHovered(false)}
         >
           {/* Adjusted args if needed based on the new parent scale */}
-          <sphereGeometry args={[0.08]} />
+          <sphereGeometry args={[0.12]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       )}
@@ -62,7 +62,7 @@ export default function Controller() {
           }}
           onPointerOut={() => setHovered(false)}
         >
-          <sphereGeometry args={[0.08]} />
+          <sphereGeometry args={[0.12]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       )}
@@ -82,7 +82,7 @@ export default function Controller() {
           }}
           onPointerOut={() => setHovered(false)}
         >
-          <sphereGeometry args={[0.08]} />
+          <sphereGeometry args={[0.12]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       )}
@@ -102,7 +102,7 @@ export default function Controller() {
           }}
           onPointerOut={() => setHovered(false)}
         >
-          <sphereGeometry args={[0.08]} />
+          <sphereGeometry args={[0.12]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       )}
@@ -142,10 +142,11 @@ export default function Controller() {
           }}
           onPointerOut={() => setHovered(false)}
         >
-          <sphereGeometry args={[0.08]} />
+          <sphereGeometry args={[0.12]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
       )}
     </group>
   );
 }
+
