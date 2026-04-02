@@ -172,53 +172,53 @@ export default function Hero() {
           >
             Sharan Thakur
           </motion.h1>
-           <motion.p
-             style={{
-               fontSize: "1.5rem",
-               color: "var(--text-secondary)",
-               marginBottom: "2rem",
-             }}
-           >
-             AI/ML Researcher & Software Engineer
-           </motion.p>
-           <motion.div style={{ display: "flex", gap: "1.5rem" }}>
-             <a
-               href="https://linkedin.com/in/sharan-thakur-a4a0861b5"
-               target="_blank"
-               rel="noopener noreferrer"
-               style={{
-                 fontSize: "1.5rem",
-                 color: "var(--text-primary)",
-                 transition: "color 0.3s ease",
-               }}
-               onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                 e.currentTarget.style.color = "var(--accent)";
-               }}
-               onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                 e.currentTarget.style.color = "var(--text-primary)";
-               }}
-             >
-               <FaLinkedinIn />
-             </a>
-             <a
-               href="https://github.com/c2p-cmd/"
-               target="_blank"
-               rel="noopener noreferrer"
-               style={{
-                 fontSize: "1.5rem",
-                 color: "var(--text-primary)",
-                 transition: "color 0.3s ease",
-               }}
-               onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                 e.currentTarget.style.color = "var(--accent)";
-               }}
-               onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                 e.currentTarget.style.color = "var(--text-primary)";
-               }}
-             >
-               <FaGithub />
-             </a>
-           </motion.div>
+          <motion.p
+            style={{
+              fontSize: "1.5rem",
+              color: "var(--text-secondary)",
+              marginBottom: "2rem",
+            }}
+          >
+            AI/ML Researcher & Software Engineer
+          </motion.p>
+          <motion.div style={{ display: "flex", gap: "1.5rem" }}>
+            <a
+              href="https://linkedin.com/in/sharan-thakur-a4a0861b5"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: "1.5rem",
+                color: "var(--text-primary)",
+                transition: "color 0.3s ease",
+              }}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.color = "var(--accent)";
+              }}
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+            >
+              <FaLinkedinIn />
+            </a>
+            <a
+              href="https://github.com/c2p-cmd/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontSize: "1.5rem",
+                color: "var(--text-primary)",
+                transition: "color 0.3s ease",
+              }}
+              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.color = "var(--accent)";
+              }}
+              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.currentTarget.style.color = "var(--text-primary)";
+              }}
+            >
+              <FaGithub />
+            </a>
+          </motion.div>
 
           <motion.div
             style={{

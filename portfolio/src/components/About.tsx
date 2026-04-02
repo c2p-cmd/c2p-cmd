@@ -37,11 +37,29 @@ export default function About() {
               borderRadius: "12px",
               boxShadow: "var(--shadow)",
               border: "1px solid var(--border)",
+              textAlign: "left",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
             }}
           >
-            <h3 style={{ color: "var(--accent)" }}>Current Role</h3>
-            <p>AI/ML Researcher @ Fraunhofer FOKUS</p>
+            <h3 style={{ color: "var(--accent)", margin: 0 }}>Current Role</h3>
+            <p
+              style={{
+                fontWeight: "600",
+                color: "var(--text-primary)",
+                margin: 0,
+              }}
+            >
+              AI/ML Researcher @ Fraunhofer FOKUS
+            </p>
+            <p style={{ fontSize: "0.95rem", margin: 0 }}>
+              Working in the Software-based Networks (NGNI) unit, focusing on
+              applying machine learning to next-generation network
+              infrastructures.
+            </p>
           </div>
+
           <div
             style={{
               background: "var(--bg-card)",
@@ -49,11 +67,27 @@ export default function About() {
               borderRadius: "12px",
               boxShadow: "var(--shadow)",
               border: "1px solid var(--border)",
+              textAlign: "left",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
             }}
           >
-            <h3 style={{ color: "var(--accent)" }}>Previous</h3>
-            <p>Software Engineer @ KIDA Studios</p>
+            <h3 style={{ color: "var(--accent)", margin: 0 }}>Education</h3>
+            <p
+              style={{
+                fontWeight: "600",
+                color: "var(--text-primary)",
+                margin: 0,
+              }}
+            >
+              Master's in Computer Science
+            </p>
+            <p style={{ fontSize: "0.95rem", margin: 0 }}>
+              Pursuing an MEng at GISMA Institute of Applied Sciences.
+            </p>
           </div>
+
           <div
             style={{
               background: "var(--bg-card)",
@@ -61,11 +95,34 @@ export default function About() {
               borderRadius: "12px",
               boxShadow: "var(--shadow)",
               border: "1px solid var(--border)",
+              textAlign: "left",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
             }}
           >
-            <h3 style={{ color: "var(--accent)" }}>Education</h3>
-            <p>Master's in Computer Science</p>
+            <h3 style={{ color: "var(--accent)", margin: 0 }}>Focus Areas</h3>
+            <div
+              style={{
+                fontSize: "0.95rem",
+                color: "var(--text-secondary)",
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.25rem",
+              }}
+            >
+              <span>
+                <strong>ML Systems:</strong> Edge deployment, CV, and Apple MLX.
+              </span>
+              <span>
+                <strong>Networks:</strong> 5G, SDR, and GNU Radio.
+              </span>
+              <span>
+                <strong>Mobile:</strong> Native iOS & SwiftUI.
+              </span>
+            </div>
           </div>
+
           <div
             style={{
               background: "var(--bg-card)",
@@ -73,10 +130,26 @@ export default function About() {
               borderRadius: "12px",
               boxShadow: "var(--shadow)",
               border: "1px solid var(--border)",
+              textAlign: "left",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
             }}
           >
-            <h3 style={{ color: "var(--accent)" }}>Focus Areas</h3>
-            <p>ML systems, distributed systems, mobile</p>
+            <h3 style={{ color: "var(--accent)", margin: 0 }}>Hobbies</h3>
+            <p
+              style={{
+                fontWeight: "600",
+                color: "var(--text-primary)",
+                margin: 0,
+              }}
+            >
+              Gaming & Tech
+            </p>
+            <p style={{ fontSize: "0.95rem", margin: 0 }}>
+              When I'm not at a hackathon, you can usually find me reading
+              manga, exploring the Apple ecosystem, or gaming on my ROG Ally.
+            </p>
           </div>
         </div>
 
