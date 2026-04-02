@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import * as THREE from "three";
 import Controller from "./Controller";
 import sharanPhoto from "../assets/SharanPhoto3.jpg";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 function Scene() {
   const ref = React.useRef<THREE.Group>(null);
@@ -171,15 +172,53 @@ export default function Hero() {
           >
             Sharan Thakur
           </motion.h1>
-          <motion.p
-            style={{
-              fontSize: "1.5rem",
-              color: "var(--text-secondary)",
-              marginBottom: "2rem",
-            }}
-          >
-            AI/ML Researcher & Software Engineer
-          </motion.p>
+           <motion.p
+             style={{
+               fontSize: "1.5rem",
+               color: "var(--text-secondary)",
+               marginBottom: "2rem",
+             }}
+           >
+             AI/ML Researcher & Software Engineer
+           </motion.p>
+           <motion.div style={{ display: "flex", gap: "1.5rem" }}>
+             <a
+               href="https://linkedin.com/in/sharan-thakur-a4a0861b5"
+               target="_blank"
+               rel="noopener noreferrer"
+               style={{
+                 fontSize: "1.5rem",
+                 color: "var(--text-primary)",
+                 transition: "color 0.3s ease",
+               }}
+               onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                 e.currentTarget.style.color = "var(--accent)";
+               }}
+               onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                 e.currentTarget.style.color = "var(--text-primary)";
+               }}
+             >
+               <FaLinkedinIn />
+             </a>
+             <a
+               href="https://github.com/c2p-cmd/"
+               target="_blank"
+               rel="noopener noreferrer"
+               style={{
+                 fontSize: "1.5rem",
+                 color: "var(--text-primary)",
+                 transition: "color 0.3s ease",
+               }}
+               onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                 e.currentTarget.style.color = "var(--accent)";
+               }}
+               onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                 e.currentTarget.style.color = "var(--text-primary)";
+               }}
+             >
+               <FaGithub />
+             </a>
+           </motion.div>
 
           <motion.div
             style={{
@@ -211,130 +250,157 @@ export default function Hero() {
           51%, 100% { opacity: 0; }
         }
         
-        /* Mobile-first improvements */
-        @media (max-width: 1024px) {
+        /* Base styles - Mobile First */
+        .hero-background {
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+        }
+        
+        .controller-container {
+          width: 100%;
+          height: 40vh;
+          min-height: 250px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+        
+        .hint-bubble {
+          position: static;
+          margin: 1.5rem auto;
+          background: var(--bg-card);
+          border: 2px solid var(--accent);
+          border-radius: 16px;
+          box-shadow: var(--shadow-lg);
+          padding: 1rem;
+          max-width: 90%;
+          text-align: center;
+          font-size: 0.9rem;
+          color: var(--text-primary);
+          font-weight: 500;
+        }
+        
+        .hero-content {
+          width: 100%;
+          min-height: 60vh;
+          padding: 2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          position: relative;
+        }
+        
+        /* Desktop Styles */
+        @media (min-width: 1025px) {
           .hero-background {
-            flex-direction: column !important;
-            height: auto !important;
-            min-height: 100vh;
+            flex-direction: row;
+            height: 100vh;
           }
           
           .controller-container {
-            width: 100% !important;
-            height: 45vh !important;
-            min-height: 280px;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
+            width: 50%;
+            height: 100%;
+            min-height: auto;
           }
           
           .hint-bubble {
-            position: static !important;
-            margin: 1.5rem auto !important;
-            transform: none !important;
-            left: auto !important;
-            top: auto !important;
-            max-width: 90% !important;
-            text-align: center;
-            background: var(--bg-card) !important;
-            border: 2px solid var(--accent) !important;
-            box-shadow: var(--shadow-lg) !important;
-            border-radius: 16px !important;
-            padding: 1.25rem !important;
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            max-width: 300px;
           }
           
           .hero-content {
-            width: 100% !important;
-            margin-left: 0 !important;
-            height: auto !important;
-            min-height: 55vh;
-            padding: 2rem !important;
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: center !important;
-            justify-content: center !important;
-            text-align: center !important;
+            width: 50%;
+            margin-left: 50%;
+            height: 100vh;
+            min-height: auto;
+            padding: 0 4rem;
+            justify-content: center;
           }
           
-          /* Text scaling for mobile */
           motion.h1 {
-            font-size: clamp(2rem, 8vw, 3.2rem) !important;
-            margin-bottom: 1rem !important;
+            font-size: clamp(3rem, 6vw, 5rem);
+            margin-bottom: 1rem;
           }
           
           motion.p {
-            font-size: clamp(1.125rem, 4vw, 1.5rem) !important;
-            margin-bottom: 2rem !important;
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
           }
           
-          /* Image container on mobile */
+          motion.div[style*="position: absolute"][style*="bottom: -100px"] {
+            position: absolute !important;
+            bottom: -100px !important;
+            right: 20px !important;
+            width: 150px !important;
+            height: 150px !important;
+          }
+        }
+        
+        /* Mobile Text Scaling */
+        @media (max-width: 1024px) {
+          motion.h1 {
+            font-size: clamp(2rem, 10vw, 3.5rem);
+            margin-bottom: 1.5rem;
+          }
+          
+          motion.p {
+            font-size: clamp(1.125rem, 6vw, 1.75rem);
+            line-height: 1.4;
+            margin-bottom: 2rem;
+          }
+          
+          /* Mobile Image */
           motion.div[style*="position: absolute"][style*="bottom: -100px"] {
             position: static !important;
             margin: 2rem auto !important;
             width: 120px !important;
             height: 120px !important;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .controller-container {
-            height: 40vh !important;
-            min-height: 250px;
+            border-radius: 50% !important;
+            border: 4px solid var(--accent) !important;
+            box-shadow: var(--shadow-lg) !important;
           }
           
-          .hint-bubble {
-            margin: 1rem auto !important;
-            padding: 1rem !important;
-            font-size: 0.9rem !important;
-          }
-          
-          .hero-content {
-            min-height: 50vh;
-            padding: 1.5rem !important;
-          }
-          
-          motion.h1 {
-            font-size: clamp(1.75rem, 10vw, 2.8rem) !important;
-          }
-          
-          motion.p {
-            font-size: clamp(1rem, 4vw, 1.25rem) !important;
-          }
-          
-          motion.div[style*="position: static"][style*="margin: 2rem auto"] {
-            width: 100px !important;
-            height: 100px !important;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          .controller-container {
-            height: 35vh !important;
-            min-height: 220px;
-          }
-          
-          .hint-bubble {
-            margin: 0.75rem auto !important;
-            padding: 0.875rem !important;
-            font-size: 0.85rem !important;
-          }
-          
-          .hero-content {
-            min-height: 45vh;
-            padding: 1rem !important;
-          }
-          
-          motion.h1 {
-            font-size: clamp(1.5rem, 12vw, 2.4rem) !important;
-          }
-          
-          motion.p {
-            font-size: clamp(0.875rem, 6vw, 1.125rem) !important;
-          }
-          
-          motion.div[style*="position: static"][style*="margin: 2rem auto"] {
-            width: 80px !important;
-            height: 80px !important;
+          /* Improve spacing on very small screens */
+          @media (max-width: 480px) {
+            .controller-container {
+              height: 35vh;
+              min-height: 200px;
+            }
+            
+            .hero-content {
+              min-height: 50vh;
+              padding: 1.5rem;
+            }
+            
+            motion.h1 {
+              font-size: clamp(1.75rem, 12vw, 3rem);
+              margin-bottom: 1rem;
+            }
+            
+            motion.p {
+              font-size: clamp(1rem, 8vw, 1.5rem);
+              margin-bottom: 1.5rem;
+            }
+            
+            .hint-bubble {
+              margin: 1rem auto;
+              padding: 0.875rem;
+              font-size: 0.85rem;
+            }
+            
+            motion.div[style*="position: static"][style*="margin: 2rem auto"] {
+              width: 100px !important;
+              height: 100px !important;
+            }
           }
         }
       `}</style>
