@@ -130,9 +130,3 @@
 ## 🔗 Connect
 
 **[LinkedIn](https://linkedin.com/in/sharan-thakur-a4a0861b5)**
-
-### ✍️ A Quick Note
-
-Building AI systems that work in the real world. Passionate about bridging research and production—from distributed networks to on-device inference.
-
-![Quote](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=flag-india)
