@@ -1,10 +1,15 @@
 export default function Contact() {
   return (
-    <section id="contact" style={{
-      background: "linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)",
-      padding: "6rem 2rem",
-      textAlign: "center"
-    }}>
+    <section 
+      id="contact" 
+      style={{
+        background: "linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%)",
+        padding: "6rem 2rem",
+        textAlign: "center",
+        position: "relative",
+        zIndex: 1
+      }}
+    >
       <div style={{ maxWidth: "600px", margin: "0 auto" }}>
         <h2>Get In Touch</h2>
         <p style={{ fontSize: "1.125rem", marginBottom: "2rem" }}>

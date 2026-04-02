@@ -1,9 +1,15 @@
 export default function About() {
   return (
-    <section id="about" style={{
-      background: "var(--bg-secondary)",
-      padding: "6rem 2rem"
-    }}>
+    <section 
+      id="about" 
+      style={{
+        background: "var(--bg-secondary)",
+        padding: "6rem 2rem",
+        position: "relative",
+        zIndex: 1,
+        marginTop: "100vh"
+      }}
+    >
       <div style={{
         maxWidth: "1000px",
         margin: "0 auto",

@@ -1,16 +1,17 @@
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Float } from "@react-three/drei";
 import { useRef, Suspense } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import * as THREE from "three";
 import Controller from "./Controller";
-import sharanPhoto from "../assets/SharanPhoto3.jpg";
 
 function Scene() {
   const ref = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
+    const scrollY = window.scrollY;
     if (ref.current) {
-      ref.current.rotation.y = state.clock.elapsedTime * 0.3;
+      ref.current.rotation.y = scrollY * 0.003;
     }
   });
 
@@ -24,60 +25,40 @@ function Scene() {
 }
 
 export default function Hero() {
-  return (
-    <section id="hero" style={{
-      minHeight: "100vh",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      padding: "2rem",
-      position: "relative",
-      background: "linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)"
-    }}>
-      <div style={{
-        maxWidth: "1200px",
-        width: "100%",
-        display: "grid",
-        gridTemplateColumns: "1fr 1.5fr",
-        gap: "4rem",
-        alignItems: "center",
-        zIndex: 1
-      }}>
-        <div style={{ textAlign: "left" }}>
-          <h1 style={{ marginBottom: "1rem" }}>Sharan Thakur</h1>
-          <p style={{ fontSize: "1.25rem", marginBottom: "2rem", color: "var(--text-secondary)" }}>
-            AI/ML Researcher & Software Engineer
-          </p>
-          <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-            <a href="#about" style={{
-              padding: "0.75rem 2rem",
-              background: "var(--accent)",
-              color: "white",
-              borderRadius: "8px",
-              fontWeight: "500"
-            }}>
-              About Me
-            </a>
-            <a href="#contact" style={{
-              padding: "0.75rem 2rem",
-              background: "transparent",
-              border: "2px solid var(--accent)",
-              color: "var(--accent)",
-              borderRadius: "8px",
-              fontWeight: "500"
-            }}>
-              Contact
-            </a>
-          </div>
-        </div>
+  const { scrollYProgress } = useScroll();
+  
+  const nameOpacity = useTransform(scrollYProgress, [0, 0.15], [1, 0]);
+  const nameScale = useTransform(scrollYProgress, [0, 0.15], [1, 0.6]);
+  const nameY = useTransform(scrollYProgress, [0, 0.15], [0, -200]);
 
-        <div style={{
+  return (
+    <div 
+      style={{ 
+        height: "100vh",
+        width: "100%",
+        position: "fixed",
+        top: 0,
+        left: 0,
+        background: "linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%)",
+        zIndex: 0
+      }}
+    >
+      <div style={{
+        position: "relative",
+        width: "100%",
+        height: "100%",
+        display: "grid",
+        gridTemplateColumns: "1.2fr 1fr",
+        alignItems: "center",
+        padding: "0 4rem",
+        gap: "2rem",
+        maxWidth: "1600px",
+        margin: "0 auto"
+      }}>
+        <div style={{ 
           position: "relative",
-          width: "100%",
-          height: "500px",
-          borderRadius: "16px",
-          overflow: "hidden",
-          boxShadow: "var(--shadow-lg)"
+          height: "600px",
+          width: "100%"
         }}>
           <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
             <ambientLight intensity={1.5} />
@@ -87,30 +68,37 @@ export default function Hero() {
               <Scene />
             </Suspense>
           </Canvas>
-          
-          <div style={{
-            position: "absolute",
-            bottom: "20px",
-            right: "20px",
-            width: "150px",
-            height: "150px",
-            borderRadius: "50%",
-            overflow: "hidden",
-            border: "4px solid var(--accent)",
-            boxShadow: "var(--shadow-lg)"
-          }}>
-            <img 
-              src={sharanPhoto} 
-              alt="Sharan Thakur" 
-              style={{
-                width: "100%",
-                height: "100%",
-                objectFit: "cover"
-              }}
-            />
-          </div>
         </div>
+
+        <motion.div 
+          style={{ 
+            opacity: nameOpacity,
+            scale: nameScale,
+            y: nameY,
+            textAlign: "left",
+            position: "relative",
+            zIndex: 10
+          }}
+        >
+          <motion.h1 
+            style={{ 
+              marginBottom: "1rem",
+              fontSize: "clamp(3rem, 6vw, 5rem)"
+            }}
+          >
+            Sharan Thakur
+          </motion.h1>
+          <motion.p 
+            style={{ 
+              fontSize: "1.5rem", 
+              color: "var(--text-secondary)",
+              marginBottom: "2rem" 
+            }}
+          >
+            AI/ML Researcher & Software Engineer
+          </motion.p>
+        </motion.div>
       </div>
-    </section>
+    </div>
   );
 }

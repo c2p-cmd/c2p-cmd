@@ -110,3 +110,15 @@ section {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-light);
 }
+
+@media (max-width: 1024px) {
+  section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 3rem 1rem;
+  }
+}
