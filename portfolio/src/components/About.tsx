@@ -6,8 +6,7 @@ export default function About() {
         background: "var(--bg-secondary)",
         padding: "6rem 2rem",
         position: "relative",
-        zIndex: 1,
-        marginTop: "100vh"
+        zIndex: 1
       }}
     >
       <div style={{

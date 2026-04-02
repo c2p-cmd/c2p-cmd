@@ -1,8 +1,18 @@
+import React from "react";
 import { useGLTF } from "@react-three/drei";
 import modelPath from "../assets/xbox-controller/xbxox_export.glb?url";
 
 export default function Controller() {
   const { scene, nodes } = useGLTF(modelPath);
+  const [hovered, setHovered] = React.useState(false);
+
+  // Change cursor to pointer when hovering over a button
+  React.useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto";
+    return () => {
+      document.body.style.cursor = "auto";
+    };
+  }, [hovered]);
 
   const scrollTo = (id: string) => {
     const element = document.getElementById(id);
@@ -12,20 +22,26 @@ export default function Controller() {
   };
 
   return (
-    <group>
-      <primitive object={scene} scale={1.5} />
+    // Moved scale={2} to the parent group so everything scales together!
+    <group scale={2}>
+      <primitive object={scene} />
 
       {/* A Button - Scroll to About */}
       {nodes.a_button && (
         <mesh
           position={nodes.a_button.position}
-          scale={nodes.a_button.scale}
           rotation={nodes.a_button.rotation}
           onClick={(e) => {
             e.stopPropagation();
             scrollTo("about");
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
+          {/* Adjusted args if needed based on the new parent scale */}
           <sphereGeometry args={[0.08]} />
           <meshBasicMaterial transparent opacity={0} />
         </mesh>
@@ -35,12 +51,16 @@ export default function Controller() {
       {nodes.b_button && (
         <mesh
           position={nodes.b_button.position}
-          scale={nodes.b_button.scale}
           rotation={nodes.b_button.rotation}
           onClick={(e) => {
             e.stopPropagation();
             scrollTo("work");
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.08]} />
           <meshBasicMaterial transparent opacity={0} />
@@ -51,12 +71,16 @@ export default function Controller() {
       {nodes.x_button && (
         <mesh
           position={nodes.x_button.position}
-          scale={nodes.x_button.scale}
           rotation={nodes.x_button.rotation}
           onClick={(e) => {
             e.stopPropagation();
             scrollTo("education");
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.08]} />
           <meshBasicMaterial transparent opacity={0} />
@@ -67,12 +91,16 @@ export default function Controller() {
       {nodes.y_button && (
         <mesh
           position={nodes.y_button.position}
-          scale={nodes.y_button.scale}
           rotation={nodes.y_button.rotation}
           onClick={(e) => {
             e.stopPropagation();
             scrollTo("projects");
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.08]} />
           <meshBasicMaterial transparent opacity={0} />
@@ -83,12 +111,16 @@ export default function Controller() {
       {nodes.xbox_button && (
         <mesh
           position={nodes.xbox_button.position}
-          scale={nodes.xbox_button.scale}
           rotation={nodes.xbox_button.rotation}
           onClick={(e) => {
             e.stopPropagation();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.1]} />
           <meshBasicMaterial transparent opacity={0} />
@@ -99,12 +131,16 @@ export default function Controller() {
       {nodes.menu_right && (
         <mesh
           position={nodes.menu_right.position}
-          scale={nodes.menu_right.scale}
           rotation={nodes.menu_right.rotation}
           onClick={(e) => {
             e.stopPropagation();
             scrollTo("contact");
           }}
+          onPointerOver={(e) => {
+            e.stopPropagation();
+            setHovered(true);
+          }}
+          onPointerOut={() => setHovered(false)}
         >
           <sphereGeometry args={[0.08]} />
           <meshBasicMaterial transparent opacity={0} />

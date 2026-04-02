@@ -9,22 +9,36 @@ import "./App.css";
 export default function App() {
   return (
     <>
-      {/* <nav>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav> */}
+      {/* Renders the fixed Canvas and the initial right-side Hero text */}
       <Hero />
-      <About />
-      <Work />
-      <Education />
-      <Projects />
-      <Contact />
+
+      {/* Pushed to the right 50% and given a solid background */}
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          width: "50%",
+          marginLeft: "50%",
+          background: "var(--bg-primary)",
+          boxShadow: "-10px 0 30px rgba(0,0,0,0.03)",
+        }}
+        className="content-wrapper"
+      >
+        <About />
+        <Work />
+        <Education />
+        <Projects />
+        <Contact />
+      </div>
+
+      <style>{`
+        @media (max-width: 1024px) {
+          .content-wrapper {
+            width: 100% !important;
+            margin-left: 0 !important;
+          }
+        }
+      `}</style>
     </>
   );
 }
