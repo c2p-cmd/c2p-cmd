@@ -160,7 +160,7 @@ export default function About() {
           </h3>
           <div
             style={{
-              height: "500px",
+              height: "550px",
               width: "100%",
               background: "var(--bg-card)",
               borderRadius: "12px",
@@ -174,10 +174,10 @@ export default function About() {
               If you add OrbitControls later, this makes it feel native.
             */}
             <Canvas
-              camera={{ position: [0, 0, 9], fov: 50 }}
+              camera={{ position: [0, 0, 9.5], fov: 50 }}
               style={{ cursor: "grab" }}
             >
-              <TechCloud radius={3.5} />
+              <TechCloud radius={3.3} />
             </Canvas>
           </div>
         </div>
