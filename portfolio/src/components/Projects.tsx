@@ -1,5 +1,3 @@
-import projectsScreenshot from "../assets/Screenshot 2026-04-02 at 20.25.20.png";
-
 interface Project {
   title: string;
   desc: string;
@@ -20,7 +18,7 @@ const projectList: Project[] = [
     desc: "Multi-agent orchestration system with tool use for simulating debates",
     tags: ["AI", "Multi-agent", "LLM"],
     link: "https://github.com/c2p-cmd/win_my_argument",
-    img: "https://raw.githubusercontent.com/c2p-cmd/win_my_argument/master/screenshots/Screenshot%202026-04-02%20at%2017.54.11.png",
+    img: "https://raw.githubusercontent.com/c2p-cmd/win_my_argument/master/screenshots/thumbnail.png",
   },
   {
     title: "ScrollCast",
@@ -30,7 +28,7 @@ const projectList: Project[] = [
       "https://github.com/c2p-cmd/scroll_cast",
       "https://www.youtube.com/watch?v=UjMPYivrAcI",
     ],
-    img: "https://raw.githubusercontent.com/c2p-cmd/scroll_cast/master/Screenshot%202025-09-21%20at%2015.58.30.png",
+    img: "https://raw.githubusercontent.com/c2p-cmd/scroll_cast/master/thumbnail.png",
   },
   {
     title: "Image Generative Models with MLX",
@@ -40,7 +38,7 @@ const projectList: Project[] = [
       "https://github.com/c2p-cmd/all_about_gans",
       "https://www.youtube.com/watch?v=-rIP5dT_nKY",
     ],
-    img: projectsScreenshot,
+    img: "https://raw.githubusercontent.com/c2p-cmd/all_about_gans/master/screenshots/thumbnail.png",
   },
 ];
 
@@ -112,7 +110,7 @@ export default function Projects() {
                     <div
                       style={{
                         width: "100%",
-                        height: "160px",
+                        height: "210px",
                         overflow: "hidden",
                         position: "relative",
                       }}
@@ -127,7 +125,7 @@ export default function Projects() {
                           transition: "transform 0.3s ease",
                         }}
                       />
-                      <div
+                      {/* <div
                         style={{
                           position: "absolute",
                           bottom: 0,
@@ -143,7 +141,7 @@ export default function Projects() {
                         }}
                       >
                         {p.title}
-                      </div>
+                      </div> */}
                     </div>
                   )}
                   <div style={{ padding: "1.5rem" }}>
