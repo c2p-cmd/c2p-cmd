@@ -1,5 +1,9 @@
-import { Canvas } from "@react-three/fiber";
-import TechCloud from "./TechCloud";
+import { Suspense, lazy } from "react";
+import LazyVisible from "./LazyVisible";
+
+// Lazy-loaded and visibility-gated: pulls in three.js / react-three-fiber
+// only once this section is about to scroll into view.
+const TechCloudCanvas = lazy(() => import("./TechCloudCanvas"));
 
 export default function About() {
   return (
@@ -162,12 +166,11 @@ export default function About() {
             {/* cursor: "grab" gives the user a hint that it might be interactive.
               If you add OrbitControls later, this makes it feel native.
             */}
-            <Canvas
-              camera={{ position: [0, 0, 9.5], fov: 50 }}
-              style={{ cursor: "grab" }}
-            >
-              <TechCloud radius={3.3} />
-            </Canvas>
+            <LazyVisible style={{ width: "100%", height: "100%" }}>
+              <Suspense fallback={null}>
+                <TechCloudCanvas />
+              </Suspense>
+            </LazyVisible>
           </div>
         </div>
       </div>

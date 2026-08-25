@@ -1,30 +1,17 @@
-import { Canvas } from "@react-three/fiber";
-import { Float } from "@react-three/drei";
-import React, { Suspense, useState, useEffect, useMemo } from "react";
+import React, {
+  Suspense,
+  lazy,
+  useState,
+  useEffect,
+  useMemo,
+} from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import * as THREE from "three";
-import Controller from "./Controller";
 import sharanPhoto from "../assets/SharanPhoto3.jpg";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
-function Scene() {
-  const ref = React.useRef<THREE.Group>(null);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-
-  useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  return (
-    <Float rotationIntensity={0.3} floatIntensity={0.3}>
-      <group ref={ref} scale={isMobile ? 1.2 : 1}>
-        <Controller />
-      </group>
-    </Float>
-  );
-}
+// Lazy-loaded: pulls in three.js / react-three-fiber / drei only when this
+// chunk is requested, instead of bundling them into the main entry file.
+const HeroScene = lazy(() => import("./HeroScene"));
 
 export default function Hero() {
   const { scrollYProgress } = useScroll();
@@ -100,21 +87,11 @@ export default function Hero() {
           <div className="bubble-tail" />
         </motion.div>
 
-        {/* 3D Canvas container */}
+        {/* 3D Canvas container - loaded lazily, see HeroScene.tsx */}
         <div className="controller-container">
-          <Canvas
-            camera={{
-              position: [0, 0, window.innerWidth <= 768 ? 4 : 5],
-              fov: 45,
-            }}
-          >
-            <ambientLight intensity={1.5} />
-            <directionalLight position={[5, 5, 5]} intensity={1} />
-            <pointLight position={[-5, -5, -5]} intensity={0.5} />
-            <Suspense fallback={null}>
-              <Scene />
-            </Suspense>
-          </Canvas>
+          <Suspense fallback={null}>
+            <HeroScene />
+          </Suspense>
         </div>
       </div>
 
@@ -141,12 +118,13 @@ export default function Hero() {
           >
             <img
               src={sharanPhoto}
-              alt="Sharan Thakur"
+              alt="Sharan Thakur (Sharan Deepak Thakur)"
               style={{ width: "100%", height: "100%", objectFit: "cover" }}
             />
           </motion.div>
 
           <motion.h1 className="hero-title">Sharan Thakur</motion.h1>
+          <motion.p className="hero-fullname">Sharan Deepak Thakur</motion.p>
           <motion.p className="hero-subtitle">
             AI/ML Researcher & Software Engineer
           </motion.p>
@@ -251,8 +229,17 @@ export default function Hero() {
         }
 
         .hero-title {
-          margin-bottom: 1rem;
+          margin-bottom: 0.35rem;
           font-size: clamp(3rem, 6vw, 5rem);
+        }
+
+        .hero-fullname {
+          margin-bottom: 1rem;
+          font-size: 0.9rem;
+          font-weight: 400;
+          color: var(--text-secondary);
+          opacity: 0.75;
+          letter-spacing: 0.02em;
         }
 
         .hero-subtitle {
