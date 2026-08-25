@@ -9,7 +9,8 @@ interface Project {
 interface Research {
   title: string;
   desc: string;
-  link: string;
+  status: string;
+  link?: string;
 }
 
 const projectList: Project[] = [
@@ -45,8 +46,28 @@ const projectList: Project[] = [
 const researchList: Research[] = [
   {
     title:
+      "Network Slicing Performance Analysis on an Open-Source-Based 5G Nomadic Node",
+    desc: "Designed and evaluated a containerized 5G SA slicing testbed (Open5GS, UERANSIM, Kamailio, Prometheus/Grafana) on a nomadic edge node; demonstrated measurable QoS differentiation in packet loss and jitter across traffic priority classes.",
+    status: "Published at CITS 2026",
+    link: "https://ieeexplore.ieee.org/abstract/document/11637331",
+  },
+  {
+    title:
+      "An Empirical Study of Compute Platform Influence on 5G gNB Performance and Energy Efficiency Using srsRAN",
+    desc: "Empirically compared srsRAN gNB on x86 and Raspberry Pi using a USRP B210 + Nokia X30 UE; Pi achieved 5× lower power at competitive throughput.",
+    status: "Accepted at SoftCOM 2026",
+  },
+  {
+    title:
+      "Experimental Results on Automatic Design of Joint Communication and Sensing Waveforms for LEO Satellites",
+    desc: "Developed an autoencoder-based neural network in TensorFlow for automatic JCAS waveform design for LEO satellites; evaluated a new autoresearch methodology for exploring new architectures/hyperparameters in the neural network.",
+    status: "Submitted to IEEE ISAC 2026",
+  },
+  {
+    title:
       "Evaluating Apple's MLX Framework for Machine Learning: A Comparative Study of K-Means",
     desc: "Conducted experimental evaluation of Apple’s MLX framework for machine learning workloads, benchmarking K-Means algorithm and analyzing GPU acceleration performance on Apple Silicon.",
+    status: "Preprint",
     link: "https://doi.org/10.6084/m9.figshare.30574280",
   },
 ];
@@ -290,6 +311,21 @@ export default function Projects() {
                     e.currentTarget.style.boxShadow = "var(--shadow)";
                   }}
                 >
+                  <div
+                    style={{
+                      display: "inline-block",
+                      padding: "0.2rem 0.7rem",
+                      marginBottom: "0.75rem",
+                      background: "var(--accent-glow)",
+                      color: "var(--accent)",
+                      borderRadius: "15px",
+                      fontSize: "0.75rem",
+                      fontWeight: "600",
+                      letterSpacing: "0.02em",
+                    }}
+                  >
+                    {r.status}
+                  </div>
                   <h4
                     style={{
                       marginBottom: "0.75rem",
@@ -307,24 +343,26 @@ export default function Projects() {
                   >
                     {r.desc}
                   </p>
-                  <a
-                    href={r.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      display: "inline-block",
-                      padding: "0.5rem 1.25rem",
-                      background: "var(--accent)",
-                      color: "white",
-                      borderRadius: "6px",
-                      fontSize: "0.9rem",
-                      textDecoration: "none",
-                      fontWeight: "500",
-                      transition: "all 0.2s ease",
-                    }}
-                  >
-                    Read Paper →
-                  </a>
+                  {r.link && (
+                    <a
+                      href={r.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        display: "inline-block",
+                        padding: "0.5rem 1.25rem",
+                        background: "var(--accent)",
+                        color: "white",
+                        borderRadius: "6px",
+                        fontSize: "0.9rem",
+                        textDecoration: "none",
+                        fontWeight: "500",
+                        transition: "all 0.2s ease",
+                      }}
+                    >
+                      Read Paper →
+                    </a>
+                  )}
                 </div>
               ))}
             </div>
