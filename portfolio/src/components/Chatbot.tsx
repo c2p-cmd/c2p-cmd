@@ -225,6 +225,11 @@ function MarkdownMessage({ content }: { content: string }) {
   );
 }
 
+/**
+ * @deprecated Not currently rendered on the site (removed from App.tsx).
+ * Kept in the codebase in case it's revived later. Do not import/render
+ * this component without checking with the site owner first.
+ */
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);

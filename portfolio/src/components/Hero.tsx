@@ -6,7 +6,7 @@ import React, {
   useMemo,
 } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import sharanPhoto from "../assets/SharanPhoto3.jpg";
+import sharanPhoto from "../assets/SharanPhoto4.jpg";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 // Lazy-loaded: pulls in three.js / react-three-fiber / drei only when this

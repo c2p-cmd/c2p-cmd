@@ -4,7 +4,7 @@ import Projects from "./components/Projects";
 import Work from "./components/Work";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
-import Chatbot from "./components/Chatbot";
+// Chatbot is deprecated and no longer shown - see components/Chatbot.tsx
 import "./App.css";
 
 export default function App() {
@@ -21,8 +21,6 @@ export default function App() {
         <Projects />
         <Contact />
       </div>
-
-      <Chatbot />
 
       <style>{`
         .content-wrapper {
