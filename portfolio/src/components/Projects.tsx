@@ -41,6 +41,20 @@ const projectList: Project[] = [
     ],
     img: "https://raw.githubusercontent.com/c2p-cmd/all_about_gans/master/screenshots/thumbnail.png",
   },
+  {
+    title: "Lookout Dual Camera Recorder",
+    desc: "Published iPhone, Mac, and Apple Watch app for simultaneously recording front and rear camera video, with hands-free controls and remote Apple Watch previews.",
+    tags: ["iOS", "macOS", "Apple Watch"],
+    link: "https://apps.apple.com/us/app/lookout-dual-camera-recorder/id6744577632",
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/a6/d9/26/a6d926c3-3fb5-6c86-1979-83805d16641d/AppIcon-0-0-1x_U007ephone-0-1-0-GLES2_U002c0-85-220.png/512x512bb.jpg",
+  },
+  {
+    title: "Kaal: Divine Watch Faces",
+    desc: "Published app offering a curated collection of cultural and devotional Apple Watch face designs, with simple browsing, previews, and personalization.",
+    tags: ["iOS", "Apple Watch", "Published"],
+    link: "https://apps.apple.com/in/app/kaal-divine-watch-faces/id6448176042",
+    img: "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/81/6b/4a/816b4a44-51c8-75df-c1cd-27b2da91dbfc/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg",
+  },
 ];
 
 const researchList: Research[] = [
@@ -59,9 +73,15 @@ const researchList: Research[] = [
   },
   {
     title:
-      "Experimental Results on Automatic Design of Joint Communication and Sensing Waveforms for LEO Satellites",
-    desc: "Developed an autoencoder-based neural network in TensorFlow for automatic JCAS waveform design for LEO satellites; evaluated a new autoresearch methodology for exploring new architectures/hyperparameters in the neural network.",
-    status: "Submitted to IEEE ISAC 2026",
+      "End-to-End Network Slicing with Radio-Level QoS in a Fully Virtualized Kubernetes 5G Testbed",
+    desc: "Built a containerized 5G testbed with Open5GS, srsRAN, UERANSIM, and Kubernetes to evaluate radio-level QoS across network slices. Benchmarks across 60 test runs showed slice differentiation in a virtualized environment, alongside compute overhead, bandwidth, and deployment complexity tradeoffs.",
+    status: "Accepted at SoftCOM 2026",
+  },
+  {
+    title:
+      "Simulated Real-Time Experiments toward LLM-based Agentic Core Networks",
+    desc: "Benchmarked edge-deployable open-weight LLMs for 6G core networks and studied their use in real-time mobility decisions. Proposed fast-path/slow-path and hybrid heuristic-LLM approaches, evaluated in simulated mobility experiments against a refined UE-to-BS association baseline.",
+    status: "Accepted at FNWF'26",
   },
   {
     title:
@@ -263,7 +283,9 @@ export default function Projects() {
                             transition: "all 0.2s ease",
                           }}
                         >
-                          View Project
+                          {p.link.includes("apps.apple.com")
+                            ? "View on App Store"
+                            : "View Project"}
                         </a>
                       )}
                     </div>
