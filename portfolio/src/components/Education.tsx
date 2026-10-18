@@ -185,6 +185,37 @@ export default function Education() {
               </a>
             </p>
           </div>
+
+          <div
+            style={{
+              marginTop: "2rem",
+              background: "var(--bg-card)",
+              padding: "2rem",
+              borderRadius: "12px",
+              boxShadow: "var(--shadow)",
+              border: "1px solid var(--border)",
+              textAlign: "left",
+            }}
+          >
+            <h4 style={{ color: "var(--accent)", marginBottom: "0.75rem" }}>
+              Volunteered for Formula-E Berlin 2026
+            </h4>
+            <p
+              style={{
+                color: "var(--text-secondary)",
+                fontSize: "0.875rem",
+                marginBottom: "1rem",
+              }}
+            >
+              Link to certificate{" "}
+              <a
+                href="https://github.com/c2p-cmd/c2p-cmd/blob/main/2026%20Berlin%20E-Prix%20Volunteer%20Certificate.pdf"
+                target="blank_"
+              >
+                here
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
